@@ -1,14 +1,39 @@
 import React, { useState } from 'react';
 import { Star, ShoppingCart, ArrowLeft, Plus, Minus, Truck, MapPin, Clock, Calculator } from 'lucide-react';
-import { ProductPage } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useCart } from '@/contexts/CartContext';
+import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Separator } from '@/components/ui/separator';
+import { ImageWithFallback } from '@/components/ImageWithFallback';
 
-export function ProductPage({ product, onNavigate }) {
+export function ProductPage() { 
+  const location = useLocation();
+  const navigate = useNavigate();
+  // Busca o produto a partir do estado de navegação
+  const product = location.state?.product;
+
   const [quantity, setQuantity] = useState(1);
   const [zipCode, setZipCode] = useState('');
   const [shippingOptions, setShippingOptions] = useState([]);
   const [isCalculating, setIsCalculating] = useState(false);
   const [hasCalculated, setHasCalculated] = useState(false);
   const { addToCart } = useCart();
+
+  // Tratamento caso o produto não seja encontrado
+  if (!product) {
+    return (
+      <div className="container mx-auto px-4 py-12 text-center">
+        <h1 className="text-2xl font-bold">Produto não encontrado.</h1>
+        <Button onClick={() => navigate('/')} className="mt-4">
+          Voltar para a loja
+        </Button>
+      </div>
+    );
+  }
 
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) {

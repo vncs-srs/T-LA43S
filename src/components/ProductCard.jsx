@@ -1,7 +1,10 @@
 import React from 'react';
 import { Star, ShoppingCart } from 'lucide-react';
-
-import { useCart } from '../contexts/CartContext';
+import { useCart } from '@/contexts/CartContext';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { ImageWithFallback } from '@/components/ImageWithFallback';
 
 export function ProductCard({ product, onProductClick }) {
   const { addToCart } = useCart();

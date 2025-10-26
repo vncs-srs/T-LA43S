@@ -1,8 +1,15 @@
 import React from 'react';
 import { Trash2, Plus, Minus, ShoppingBag } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { useCart } from '@/contexts/CartContext';
+import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
+import { ImageWithFallback } from '@/components/ImageWithFallback';
 
 
-export function CartPage({ onNavigate }) {
+export function CartPage() { 
+  const navigate = useNavigate();
   const { items, updateQuantity, removeFromCart, getTotalPrice, getTotalItems, clearCart } = useCart();
 
   if (items.length === 0) {
@@ -14,7 +21,7 @@ export function CartPage({ onNavigate }) {
           <p className="text-muted-foreground">
             Adicione produtos ao seu carrinho para continuar comprando.
           </p>
-          <Button onClick={() => onNavigate('home')}>
+          <Button onClick={() => navigate('/')}>
             Continuar Comprando
           </Button>
         </div>
@@ -99,7 +106,7 @@ export function CartPage({ onNavigate }) {
           <div className="flex justify-between">
             <Button 
               variant="outline" 
-              onClick={() => onNavigate('home')}
+              onClick={() => navigate('home')}
             >
               Continuar Comprando
             </Button>

@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import { Search, ShoppingCart, User, Menu } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { useCart } from '@/contexts/CartContext';
 
+// Imports de UI Corrigidos
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Badge } from '@/components/ui/badge';
 
-export function Navbar({ onSearchChange, onMenuToggle, currentPage, onNavigate }) {
+export function Navbar({ onSearchChange, onMenuToggle }) { // Removidos currentPage e onNavigate
   const [searchTerm, setSearchTerm] = useState('');
   const { getTotalItems } = useCart();
+  const navigate = useNavigate(); // Novo hook
 
   const handleSearchChange = (e) => {
     const value = e.target.value;
@@ -21,7 +28,7 @@ export function Navbar({ onSearchChange, onMenuToggle, currentPage, onNavigate }
             <Menu className="h-5 w-5" />
           </Button>
           <button 
-            onClick={() => onNavigate('home')}
+            onClick={() => navigate('/')}
             className="font-bold text-xl text-primary hover:text-primary/80 transition-colors"
           >
             Marketplace
@@ -47,7 +54,7 @@ export function Navbar({ onSearchChange, onMenuToggle, currentPage, onNavigate }
           <Button 
             variant="ghost" 
             size="icon"
-            onClick={() => onNavigate('cart')}
+            onClick={() => navigate('/cart')}
             className="relative"
           >
             <ShoppingCart className="h-5 w-5" />
@@ -63,14 +70,14 @@ export function Navbar({ onSearchChange, onMenuToggle, currentPage, onNavigate }
           
           <Button 
             variant="ghost" 
-            onClick={() => onNavigate('login')}
+            onClick={() => navigate('/login')}
           >
             <User className="h-4 w-4 mr-2" />
             Entrar
           </Button>
           
           <Button 
-            onClick={() => onNavigate('register')}
+            onClick={() => navigate('/register')}
           >
             Cadastrar
           </Button>

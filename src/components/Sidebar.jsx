@@ -1,6 +1,13 @@
 import React from 'react';
 import { X } from 'lucide-react';
-import { categories, priceRanges } from '../data/products';
+import { categories, priceRanges } from '@/data/products';
+
+// Imports de UI Corrigidos
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Label } from '@/components/ui/label';
 
 export function Sidebar({
   isOpen,

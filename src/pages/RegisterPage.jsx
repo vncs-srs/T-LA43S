@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, User, MapPin, CreditCard } from 'lucide-react';
-import { RegisterPage } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Separator } from '@/components/ui/separator';
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
+import { Checkbox } from '@/components/ui/checkbox';
 
-
-export function RegisterPage({ onNavigate }) {
+export function RegisterPage() { 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     // Dados pessoais
     firstName: '',
@@ -62,7 +69,7 @@ export function RegisterPage({ onNavigate }) {
     console.log('Register attempt:', formData);
     alert('Cadastro realizado com sucesso!');
     // Por enquanto, apenas navega para login
-    onNavigate('login');
+    navigate('/login');;
   };
 
   const handleChange = (e) => {

@@ -1,8 +1,15 @@
 import React from 'react';
-import { ProductCard } from '../components/ProductCard';
-import { HomePage } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'; 
+import { ProductCard } from '@/components/ProductCard';
 
-export function HomePage({ products, onProductClick }) {
+export function HomePage({ products }) {
+  const navigate = useNavigate();
+
+  const handleProductClick = (product) => {
+    // Navega para a página do produto, passando o objeto do produto via state
+    navigate(`/product/${product.id}`, { state: { product } }); 
+  };
+
   return (
     <div className="container mx-auto px-4 py-6">
       <div className="mb-8">
@@ -24,7 +31,7 @@ export function HomePage({ products, onProductClick }) {
             <ProductCard
               key={product.id}
               product={product}
-              onProductClick={onProductClick}
+              onProductClick={handleProductClick}
             />
           ))}
         </div>

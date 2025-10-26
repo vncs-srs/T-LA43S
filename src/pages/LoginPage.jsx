@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
-import { LoginPage } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Separator } from '@/components/ui/separator';
 
-export function LoginPage({ onNavigate }) {
+export function LoginPage() { // Removido onNavigate
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -14,7 +20,7 @@ export function LoginPage({ onNavigate }) {
     // Aqui você adicionaria a lógica de autenticação
     console.log('Login attempt:', formData);
     // Por enquanto, apenas navega de volta para home
-    onNavigate('home');
+    navigate('/');
   };
 
   const handleChange = (e) => {
@@ -102,7 +108,7 @@ export function LoginPage({ onNavigate }) {
             <Button
               variant="link"
               className="px-0"
-              onClick={() => onNavigate('register')}
+              onClick={() => navigate('/register')}
             >
               Cadastre-se
             </Button>
@@ -111,7 +117,7 @@ export function LoginPage({ onNavigate }) {
           <div className="text-center">
             <Button
               variant="outline"
-              onClick={() => onNavigate('home')}
+              onClick={() => navigate('/register')}
               className="w-full"
             >
               Continuar sem login

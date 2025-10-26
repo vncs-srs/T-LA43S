@@ -1,8 +1,13 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube, Shield, CreditCard, Smartphone } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Separator } from '@/components/ui/separator';
 
+export function Footer() { // Removido onNavigate
+  const navigate = useNavigate();
 
-export function Footer({ onNavigate }) {
   const handleNewsletterSubmit = (e) => {
     e.preventDefault();
     // Aqui você implementaria a lógica de newsletter
@@ -44,7 +49,7 @@ export function Footer({ onNavigate }) {
             <ul className="space-y-2 text-sm">
               <li>
                 <button 
-                  onClick={() => onNavigate('home')}
+                  onClick={() => navigate('/')}
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Início

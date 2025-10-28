@@ -5,12 +5,11 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 
-export function Footer() { // Removido onNavigate
+export function Footer() { 
   const navigate = useNavigate();
 
   const handleNewsletterSubmit = (e) => {
     e.preventDefault();
-    // Aqui você implementaria a lógica de newsletter
     alert('Obrigado por se inscrever em nossa newsletter!');
   };
 

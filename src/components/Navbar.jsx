@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import { Search, ShoppingCart, User, Menu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '@/contexts/CartContext';
-
-// Imports de UI Corrigidos
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 
-export function Navbar({ onSearchChange, onMenuToggle }) { // Removidos currentPage e onNavigate
+export function Navbar({ onSearchChange, onMenuToggle }) { 
   const [searchTerm, setSearchTerm] = useState('');
   const { getTotalItems } = useCart();
   const navigate = useNavigate(); // Novo hook

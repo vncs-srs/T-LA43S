@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { ImageWithFallback } from '@/components/ImageWithFallback';
+import '@/styles/product.css';
 
 export function ProductPage() { 
   const location = useLocation();

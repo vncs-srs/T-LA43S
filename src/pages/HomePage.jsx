@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { ProductCard } from '@/components/ProductCard';
+import '@/styles/homepage.css';
 
 export function HomePage({ products }) {
   const navigate = useNavigate();

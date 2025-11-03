@@ -5,6 +5,7 @@ import { useCart } from '@/contexts/CartContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
+import '@/styles/navbar.css';
 
 export function Navbar({ onSearchChange, onMenuToggle }) { 
   const [searchTerm, setSearchTerm] = useState('');
@@ -18,48 +19,53 @@ export function Navbar({ onSearchChange, onMenuToggle }) {
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-blur:bg-background/60">
-      <div className="flex h-16 items-center justify-between px-4">
+    <nav className="navbar-root">
+      <div className="navbar-container">
         {/* Logo e Menu */}
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon" onClick={onMenuToggle} className="lg:hidden">
+        <div className="navbar-logo-menu">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={onMenuToggle} 
+            className="navbar-menu-toggle"
+          >
             <Menu className="h-5 w-5" />
           </Button>
           <button 
             onClick={() => navigate('/')}
-            className="font-bold text-xl text-primary hover:text-primary/80 transition-colors"
+            className="navbar-logo"
           >
             Marketplace
           </button>
         </div>
 
         {/* Barra de Pesquisa Central */}
-        <div className="flex-1 max-w-xl mx-8">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+        <div className="navbar-search-container">
+          <div className="navbar-search-wrapper">
+            <Search className="navbar-search-icon" />
             <Input
               type="text"
               placeholder="Buscar produtos..."
               value={searchTerm}
               onChange={handleSearchChange}
-              className="pl-10 w-full"
+              className="navbar-search-input"
             />
           </div>
         </div>
 
         {/* Menu de Usuario e Carrinho */}
-        <div className="flex items-center gap-2">
+        <div className="navbar-actions">
           <Button 
             variant="ghost" 
             size="icon"
             onClick={() => navigate('/cart')}
-            className="relative"
+            className="navbar-cart-button"
           >
             <ShoppingCart className="h-5 w-5" />
             {getTotalItems() > 0 && (
               <Badge 
                 variant="destructive" 
-                className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs"
+                className="navbar-cart-badge"
               >
                 {getTotalItems()}
               </Badge>
@@ -70,7 +76,7 @@ export function Navbar({ onSearchChange, onMenuToggle }) {
             variant="ghost" 
             onClick={() => navigate('/login')}
           >
-            <User className="h-4 w-4 mr-2" />
+            <User className="navbar-login-icon" />
             Entrar
           </Button>
           

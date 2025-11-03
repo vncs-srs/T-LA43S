@@ -10,7 +10,7 @@ import { ProductPage } from '@/pages/ProductPage';
 import { CartPage } from '@/pages/CartPage';
 import { LoginPage } from '@/pages/LoginPage';
 import { RegisterPage } from '@/pages/RegisterPage';
-
+import '@/styles/app.css';
 
 export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);

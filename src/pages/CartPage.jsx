@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { ImageWithFallback } from '@/components/ImageWithFallback';
+import '@/styles/cart.css';
 
 
 export function CartPage() { 

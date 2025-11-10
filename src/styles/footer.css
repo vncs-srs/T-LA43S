@@ -1,0 +1,280 @@
+/* src/styles/footer.css */
+.footer-container {
+  /* bg-background border-t mt-auto */
+  background-color: var(--background);
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+.footer-content {
+  /* container mx-auto px-4 py-12 */
+  max-width: 1280px; /* 'container' default */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* --- Seção Principal --- */
+.footer-main-grid {
+  /* grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 */
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-main-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .footer-main-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.footer-column {
+  /* space-y-4 */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-column-title {
+  /* font-semibold text-lg */
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.footer-description {
+  /* text-muted-foreground text-sm leading-relaxed */
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.625;
+}
+
+.footer-socials {
+  /* flex space-x-4 */
+  display: flex;
+  gap: 1rem;
+}
+
+/* Você precisará adicionar a classe "footer-social-button" aos botões */
+.footer-social-button {
+  /* h-8 w-8 */
+  height: 2rem;
+  width: 2rem;
+}
+
+.footer-link-list {
+  /* space-y-2 text-sm */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Estilo dos links */
+.footer-link {
+  /* text-muted-foreground hover:text-foreground transition-colors */
+  color: var(--muted-foreground);
+  transition: color 0.2s;
+  text-align: left;
+}
+/* Adicionar hover */
+.footer-link:hover {
+  color: var(--foreground);
+}
+
+/* --- Seção Contato --- */
+.footer-contact-item {
+  /* flex items-center gap-2 */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Wrapper para ícone e texto */
+.footer-contact-item-text-wrapper {
+  /* flex items-start gap-2 */
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+/* Ícone de contato genérico */
+.footer-contact-icon {
+  /* h-4 w-4 text-muted-foreground */
+  height: 1rem;
+  width: 1rem;
+  color: var(--muted-foreground);
+  flex-shrink: 0;
+}
+
+/* Ícone específico do mapa */
+.footer-contact-icon-map {
+  /* h-4 w-4 text-muted-foreground mt-0.5 */
+  height: 1rem;
+  width: 1rem;
+  color: var(--muted-foreground);
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+/* Texto de contato */
+.footer-contact-text {
+  /* text-muted-foreground */
+  color: var(--muted-foreground);
+}
+
+/* --- Seção Pequeno Texto --- */
+.footer-small-text {
+  /* text-xs text-muted-foreground */
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+/* --- Seção Newsletter --- */
+.footer-newsletter-form {
+  /* space-y-2 */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* --- Input Newsletter --- */
+.footer-newsletter-input {
+  /* text-sm */
+  font-size: 0.875rem;
+}
+
+/* --- Botão Newsletter --- */
+.footer-newsletter-button {
+  /* w-full */
+  width: 100%;
+}
+
+/* --- Separador --- */
+.footer-separator {
+  /* my-8 */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* --- Seção Pagamento e Segurança --- */
+.footer-secondary-grid {
+  /* grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 */
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 1024px) {
+  .footer-secondary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.footer-secondary-column {
+  /* space-y-4 */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-secondary-title {
+  /* font-semibold */
+  font-weight: 600;
+}
+
+.footer-tags-container {
+  /* flex flex-wrap gap-2 */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.footer-tag {
+  /* bg-muted rounded px-3 py-2 text-xs font-medium */
+  background-color: var(--muted);
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.footer-tag-ssl {
+  /* flex items-center gap-2 bg-muted rounded px-3 py-2 */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--muted);
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+}
+.footer-tag-ssl span {
+  /* text-xs font-medium */
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.footer-ssl-icon {
+  /* h-4 w-4 text-green-600 */
+  height: 1rem;
+  width: 1rem;
+  color: #16a34a; /* Cor para text-green-600 */
+}
+
+/* --- Seção Legal --- */
+.footer-legal-text {
+  /* text-xs text-muted-foreground leading-relaxed */
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  line-height: 1.625;
+}
+.footer-legal-text p {
+  /* mb-2 */
+  margin-bottom: 0.5rem;
+}
+
+.footer-legal-link {
+  /* underline ml-1 hover:text-foreground */
+  text-decoration: underline;
+  margin-left: 0.25rem;
+}
+.footer-legal-link:hover {
+  color: var(--foreground);
+}
+
+/* --- Seção Copyright --- */
+.footer-copyright-section {
+  /* flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+@media (min-width: 768px) {
+  .footer-copyright-section {
+    flex-direction: row;
+  }
+}
+
+.footer-copyright-links {
+  /* flex gap-4 */
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-copyright-link {
+  /* hover:text-foreground transition-colors */
+  transition: color 0.2s;
+}
+.footer-copyright-link:hover {
+  color: var(--foreground);
+}

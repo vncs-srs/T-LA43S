@@ -1,5 +1,4 @@
-/* src/components/Navbar.css */
-
+/* src/styles/navbar.css */
 .navbar-root {
   /* sticky top-0 z-50 w-full border-b */
   position: sticky;
@@ -8,12 +7,7 @@
   width: 100%;
   border-bottom: 1px solid var(--border);
   
-  /* bg-background/95 backdrop-blur supports-backdrop-blur:bg-background/60 */
-  /* Nota: A tradução direta de opacidade e blur do Tailwind é complexa.
-    Usamos o var(--background) sólido. 
-    Para reativar o blur, você pode descomentar o backdrop-filter
-    e usar uma cor de fundo com transparência (ex: rgba(255, 255, 255, 0.95)).
-  */
+ 
   background-color: var(--background);
   /* backdrop-filter: blur(8px); */
 }
@@ -66,8 +60,6 @@
 }
 
 .navbar-logo:hover {
-  /* A cor hover 'text-primary/80' depende da sua variável --primary */
-  /* Assumindo que 'var(--primary)' é um HSL ou RGB para opacidade */
   /* color: hsl(var(--primary-hsl) / 0.8); */
   opacity: 0.8; /* Alternativa simples */
 }
@@ -136,7 +128,7 @@
   justify-content: center;
   font-size: 0.75rem;
   
-  /* Estilo 'destructive' (vermelho) - baseado no badge.jsx que você forneceu */
+  /* Estilo 'destructive' (vermelho) */
   background-color: #ef4444; /* red-500 */
   color: white;
 }

@@ -1,0 +1,149 @@
+/* src/components/Navbar.css */
+
+.navbar-root {
+  /* sticky top-0 z-50 w-full border-b */
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  border-bottom: 1px solid var(--border);
+  
+  /* bg-background/95 backdrop-blur supports-backdrop-blur:bg-background/60 */
+  /* Nota: A tradução direta de opacidade e blur do Tailwind é complexa.
+    Usamos o var(--background) sólido. 
+    Para reativar o blur, você pode descomentar o backdrop-filter
+    e usar uma cor de fundo com transparência (ex: rgba(255, 255, 255, 0.95)).
+  */
+  background-color: var(--background);
+  /* backdrop-filter: blur(8px); */
+}
+
+.navbar-container {
+  /* flex h-16 items-center justify-between px-4 */
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* --- Logo e Menu (Esquerda) --- */
+.navbar-logo-menu {
+  /* flex items-center gap-4 */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.navbar-menu-toggle {
+  /* lg:hidden */
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .navbar-menu-toggle {
+    display: none;
+  }
+}
+
+.navbar-menu-toggle svg {
+  /* h-5 w-5 */
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.navbar-logo {
+  /* font-bold text-xl text-primary hover:text-primary/80 transition-colors */
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--primary);
+  transition: color 0.2s ease-in-out;
+  /* Reset de botão */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.navbar-logo:hover {
+  /* A cor hover 'text-primary/80' depende da sua variável --primary */
+  /* Assumindo que 'var(--primary)' é um HSL ou RGB para opacidade */
+  /* color: hsl(var(--primary-hsl) / 0.8); */
+  opacity: 0.8; /* Alternativa simples */
+}
+
+/* --- Barra de Pesquisa (Centro) --- */
+.navbar-search-container {
+  /* flex-1 max-w-xl mx-8 */
+  flex: 1;
+  max-width: 36rem; /* max-w-xl */
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.navbar-search-wrapper {
+  /* relative */
+  position: relative;
+}
+
+.navbar-search-icon {
+  /* absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4 */
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted-foreground);
+  height: 1rem;
+  width: 1rem;
+}
+
+.navbar-search-input {
+  /* pl-10 w-full */
+  padding-left: 2.5rem; /* 40px */
+  width: 100%;
+}
+
+/* --- Ações (Direita) --- */
+.navbar-actions {
+  /* flex items-center gap-2 */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-cart-button {
+  /* relative */
+  position: relative;
+}
+
+.navbar-cart-button svg {
+  /* h-5 w-5 */
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.navbar-cart-badge {
+  /* absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs */
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 9999px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  
+  /* Estilo 'destructive' (vermelho) - baseado no badge.jsx que você forneceu */
+  background-color: #ef4444; /* red-500 */
+  color: white;
+}
+
+.navbar-login-icon {
+  /* h-4 w-4 mr-2 */
+  height: 1rem;
+  width: 1rem;
+  margin-right: 0.5rem;
+}

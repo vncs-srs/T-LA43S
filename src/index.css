@@ -1,0 +1,196 @@
+/* src/index.css */
+:root {
+  /* Fontes */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Cores (Baseado no Figma) */
+  --background: #ffffff; /* Fundo principal (branco) */
+  --foreground: #000000; /* Texto principal (preto) */
+  --card: #ffffff; /* Fundo dos cards (branco) */
+  --card-foreground: #000000; /* Texto nos cards */
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #000000; /* Cor primária (preto, para botões e logo) */
+  --primary-foreground: #ffffff; /* Texto em botões primários (branco) */
+  --secondary: #f3f4f6; /* cinza-100 */
+  --secondary-foreground: #111827; /* cinza-900 */
+  --muted: #f9fafb; /* cinza-50 */
+  --muted-foreground: #6b7280; /* cinza-500 (para texto silenciado) */
+  --accent: #f3f4f6; /* cinza-100 */
+  --accent-foreground: #111827; /* cinza-900 */
+  --destructive: #ef4444; /* Vermelho (para badges e botões de remoção) */
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb; /* cinza-200 (para bordas) */
+  --input: #e5e7eb; /* Borda do input */
+  --ring: #000000; /* Anel de foco (preto) */
+  --radius: 0.5rem; /* Raio da borda (8px) */
+
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* --- Estilos Globais para Componentes de UI --- */
+
+/* Card */
+.ui-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--card);
+  color: var(--card-foreground);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.ui-card-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.ui-card-content {
+  padding: 1.5rem;
+}
+.ui-card-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.ui-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.ui-card-description {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+/* Input */
+.ui-input {
+  display: flex;
+  height: 2.5rem; /* 40px */
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--input);
+  background-color: var(--background);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.ui-input:focus {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.ui-input::placeholder {
+  color: var(--muted-foreground);
+}
+
+/* Button (Baseado no Figma) */
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  height: 2.5rem; /* 40px */
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+.ui-button:focus {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.ui-button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Variante Default (Preto) */
+.ui-button-default {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+}
+.ui-button-default:hover {
+  opacity: 0.9;
+}
+
+/* Variante Outline (Branco com borda) */
+.ui-button-outline {
+  background-color: var(--background);
+  color: var(--foreground);
+  border-color: var(--border);
+}
+.ui-button-outline:hover {
+  background-color: var(--accent);
+}
+
+/* Variante Ghost (Transparente) */
+.ui-button-ghost {
+  background-color: transparent;
+  color: var(--foreground);
+}
+.ui-button-ghost:hover {
+  background-color: var(--accent);
+}
+
+/* Variante Link */
+.ui-button-link {
+  background-color: transparent;
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* Tamanho Ícone */
+.ui-button-icon {
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 0;
+}
+
+/* Label */
+.ui-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+/* Separator */
+.ui-separator {
+  border: 0;
+  height: 1px;
+  background-color: var(--border);
+  margin: 1rem 0;
+}
+
+/* Badge */
+.ui-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.ui-badge-secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+.ui-badge-destructive {
+  background-color: var(--destructive);
+  color: var(--destructive-foreground);
+}

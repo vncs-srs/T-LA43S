@@ -7,27 +7,26 @@ export function HomePage({ products }) {
   const navigate = useNavigate();
 
   const handleProductClick = (product) => {
-    // Navega para a página do produto, passando o objeto do produto via state
     navigate(`/product/${product.id}`, { state: { product } }); 
   };
 
   return (
-    <div className="container mx-auto px-4 py-6">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-4">Bem-vindo ao nosso Marketplace</h1>
-        <p className="text-muted-foreground text-lg">
+    <div className="homepage-container">
+      <div className="homepage-header">
+        <h1 className="homepage-title">Bem-vindo ao nosso Marketplace</h1>
+        <p className="homepage-subtitle">
           Descubra produtos incríveis com os melhores preços e qualidade garantida.
         </p>
       </div>
 
       {products.length === 0 ? (
-        <div className="text-center py-12">
-          <p className="text-lg text-muted-foreground">
+        <div className="homepage-no-products">
+          <p>
             Nenhum produto encontrado com os filtros selecionados.
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="homepage-product-grid">
           {products.map((product) => (
             <ProductCard
               key={product.id}

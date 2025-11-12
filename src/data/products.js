@@ -3,12 +3,13 @@ export const mockProducts = [
     id: '1',
     name: 'Laptop ',
     price: 99.99,
-    image: 'https://img.global.news.samsung.com/br/wp-content/uploads/2019/01/Samsung-Notebook-9-Pro.png',
+    image: 'https://images.unsplash.com/photo-1643290369779-c6bec760cf18?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVjdHJvbmljcyUyMGxhcHRvcCUyMGNvbXB1dGVyfGVufDF8fHx8MTc1OTIyMjMwOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     category: 'Eletrônicos',
     description: 'Laptop de alta performance top.',
     rating: 4.8,
     reviews: 124
   },
+  
 
 ];
 

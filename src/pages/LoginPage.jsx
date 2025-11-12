@@ -18,9 +18,8 @@ export function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aqui você adicionaria a lógica de autenticação
     console.log('Login attempt:', formData);
-    // Por enquanto, apenas navega de volta para home
+
     navigate('/');
   };
 
@@ -89,7 +88,6 @@ export function LoginPage() {
                 variant="link"
                 className="px-0"
                 onClick={() => {
-                  // Aqui você adicionaria a lógica de recuperação de senha
                   console.log('Forgot password clicked');
                 }}
               >

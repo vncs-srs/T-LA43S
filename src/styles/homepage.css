@@ -1,6 +1,7 @@
 /* src/styles/homepage.css */
 .homepage-container {
   /* container mx-auto px-4 py-6 */
+  /* justify-items: center; */
   max-width: 1280px;
   margin: auto;
   padding: 1.5rem 1rem;
@@ -19,11 +20,16 @@
 
 .homepage-subtitle {
   /* text-muted-foreground text-lg */
+  /* display: center; */
+  /* text-align: center; */
+/*   flex-grow: 1;
+  margin: auto; */
   color: var(--muted-foreground);
   font-size: 1.125rem;
 }
 
 .homepage-no-products {
+  /* display: grid; */
   padding-top: 3rem;
   padding-bottom: 3rem;
   text-align: center;

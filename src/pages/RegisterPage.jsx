@@ -66,7 +66,6 @@ export function RegisterPage() {
       return;
     }
     
-    // Aqui você adicionaria a lógica de registro
     console.log('Register attempt:', formData);
     alert('Cadastro realizado com sucesso!');
     // Por enquanto, apenas navega para login
@@ -121,9 +120,9 @@ export function RegisterPage() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-12">
-      <Card className="w-full max-w-2xl">
-        <CardHeader className="space-y-1">
+    <div className="auth-container">
+      <Card className="auth-card auth-card-register">
+        <CardHeader className="auth-header">
           <CardTitle className="text-2xl text-center">Criar Conta</CardTitle>
           <CardDescription className="text-center">
             Preencha seus dados para finalizar o cadastro

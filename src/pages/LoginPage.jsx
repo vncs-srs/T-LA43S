@@ -6,9 +6,9 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
-import '@/styles/login.css'; 
+import '@/styles/register.css';
 
-export function LoginPage() { 
+export function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -19,7 +19,7 @@ export function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login attempt:', formData);
-
+    // Por enquanto, apenas navega de volta para home
     navigate('/');
   };
 
@@ -31,17 +31,17 @@ export function LoginPage() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-12">
-      <Card className="w-full max-w-md">
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl text-center">Entrar</CardTitle>
-          <CardDescription className="text-center">
+    <div className="auth-container">
+      <Card className="auth-card auth-card-login">
+        <CardHeader className="auth-header">
+          <CardTitle className="auth-title">Entrar</CardTitle>
+          <CardDescription className="auth-description">
             Digite suas credenciais para acessar sua conta
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
+        <CardContent>
+          <form onSubmit={handleSubmit} className="auth-form">
+            <div className="auth-input-group">
               <Label htmlFor="email">E-mail</Label>
               <Input
                 id="email"
@@ -53,10 +53,10 @@ export function LoginPage() {
                 required
               />
             </div>
-            
-            <div className="space-y-2">
+
+            <div className="auth-input-group">
               <Label htmlFor="password">Senha</Label>
-              <div className="relative">
+              <div className="auth-password-wrapper">
                 <Input
                   id="password"
                   name="password"
@@ -66,58 +66,57 @@ export function LoginPage() {
                   onChange={handleChange}
                   required
                 />
-                <Button
+                <button
                   type="button"
-                  variant="ghost"
-                  size="icon"
-                  className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                  className="auth-password-toggle"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
-                    <EyeOff className="h-4 w-4" />
+                    <EyeOff />
                   ) : (
-                    <Eye className="h-4 w-4" />
+                    <Eye />
                   )}
-                </Button>
+                </button>
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="auth-input-group">
               <Button
                 type="button"
                 variant="link"
-                className="px-0"
+                className="auth-forgot-password-link"
                 onClick={() => {
+                  //recuperação de senha
                   console.log('Forgot password clicked');
                 }}
               >
                 Esqueceu a senha?
               </Button>
             </div>
-            
-            <Button type="submit" className="w-full">
+
+            <Button type="submit" className="auth-submit-button">
               Entrar
             </Button>
           </form>
 
-          <Separator />
+          <Separator className="auth-separator" />
 
-          <div className="text-center text-sm">
-            <span className="text-muted-foreground">Não tem uma conta? </span>
+          <div className="auth-link-container">
+            <span className="auth-link-text">Não tem uma conta? </span>
             <Button
               variant="link"
-              className="px-0"
+              className="auth-link"
               onClick={() => navigate('/register')}
             >
               Cadastre-se
             </Button>
           </div>
 
-          <div className="text-center">
+          <div className="auth-continue-wrapper">
             <Button
               variant="outline"
-              onClick={() => navigate('/register')}
-              className="w-full"
+              onClick={() => navigate('/')} // Corrigido o navegamento para a página inicial
+              className="auth-continue-button"
             >
               Continuar sem login
             </Button>

@@ -8,18 +8,17 @@ import { Separator } from '@/components/ui/separator';
 import { ImageWithFallback } from '@/components/ImageWithFallback';
 import '@/styles/cart.css';
 
-
-export function CartPage() { 
+export function CartPage() {
   const navigate = useNavigate();
   const { items, updateQuantity, removeFromCart, getTotalPrice, getTotalItems, clearCart } = useCart();
 
   if (items.length === 0) {
     return (
-      <div className="container mx-auto px-4 py-12">
-        <div className="text-center space-y-4">
-          <ShoppingBag className="w-16 h-16 mx-auto text-muted-foreground" />
-          <h1 className="text-2xl font-bold">Seu carrinho está vazio</h1>
-          <p className="text-muted-foreground">
+      <div className="cart-page-container">
+        <div className="cart-page-empty">
+          <ShoppingBag className="cart-page-empty-icon" />
+          <h1 className="cart-page-empty-title">Seu carrinho está vazio</h1>
+          <p className="cart-page-empty-text">
             Adicione produtos ao seu carrinho para continuar comprando.
           </p>
           <Button onClick={() => navigate('/')}>
@@ -31,34 +30,32 @@ export function CartPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-6">
-      <h1 className="text-3xl font-bold mb-8">Carrinho de Compras</h1>
-      
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div className="cart-page-container">
+      <h1 className="cart-page-title">Carrinho de Compras</h1>
+
+      <div className="cart-page-layout">
         {/* Lista de Produtos */}
-        <div className="lg:col-span-2 space-y-4">
+        <div className="cart-item-list">
           {items.map(({ product, quantity }) => (
-            <Card key={product.id}>
-              <CardContent className="p-6">
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <div className="w-full sm:w-32 h-32 flex-shrink-0">
+            <Card key={product.id} className="cart-item-card">
+              <CardContent className="cart-item-content">
+                <div className="cart-item-layout">
+                  <div className="cart-item-image-wrapper">
                     <ImageWithFallback
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-full object-cover rounded-lg"
+                      className="cart-item-image"
                     />
                   </div>
-                  
-                  <div className="flex-1 space-y-3">
+
+                  <div className="cart-item-details">
                     <div>
-                      <h3 className="font-semibold">{product.name}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        {product.category}
-                      </p>
+                      <h3 className="cart-item-title">{product.name}</h3>
+                      <p className="cart-item-category">{product.category}</p>
                     </div>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
+
+                    <div className="cart-item-controls">
+                      <div className="cart-item-quantity-selector">
                         <Button
                           variant="outline"
                           size="icon"
@@ -67,9 +64,7 @@ export function CartPage() {
                         >
                           <Minus className="w-4 h-4" />
                         </Button>
-                        <span className="w-12 text-center font-semibold">
-                          {quantity}
-                        </span>
+                        <span className="cart-item-quantity-display">{quantity}</span>
                         <Button
                           variant="outline"
                           size="icon"
@@ -78,24 +73,24 @@ export function CartPage() {
                           <Plus className="w-4 h-4" />
                         </Button>
                       </div>
-                      
-                      <div className="text-right">
-                        <p className="font-semibold">
+
+                      <div className="cart-item-price-info">
+                        <p className="cart-item-price-total">
                           R$ {(product.price * quantity).toFixed(2).replace('.', ',')}
                         </p>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="cart-item-price-each">
                           R$ {product.price.toFixed(2).replace('.', ',')} cada
                         </p>
                       </div>
                     </div>
-                    
+
                     <Button
                       variant="ghost"
                       size="sm"
                       onClick={() => removeFromCart(product.id)}
-                      className="text-destructive hover:text-destructive"
+                      className="cart-item-remove-button"
                     >
-                      <Trash2 className="w-4 h-4 mr-2" />
+                      <Trash2 />
                       Remover
                     </Button>
                   </div>
@@ -103,18 +98,15 @@ export function CartPage() {
               </CardContent>
             </Card>
           ))}
-          
-          <div className="flex justify-between">
-            <Button 
-              variant="outline" 
-              onClick={() => navigate('home')}
-            >
+
+          <div className="cart-page-actions">
+            <Button variant="outline" onClick={() => navigate('/')}>
               Continuar Comprando
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               onClick={clearCart}
-              className="text-destructive hover:text-destructive"
+              className="cart-page-clear-button"
             >
               Limpar Carrinho
             </Button>
@@ -123,34 +115,34 @@ export function CartPage() {
 
         {/* Resumo do Pedido */}
         <div>
-          <Card className="sticky top-20">
+          <Card className="cart-summary-card">
             <CardHeader>
               <CardTitle>Resumo do Pedido</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <div className="flex justify-between">
+                <div className="cart-summary-row">
                   <span>Subtotal ({getTotalItems()} itens)</span>
                   <span>R$ {getTotalPrice().toFixed(2).replace('.', ',')}</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="cart-summary-row">
                   <span>Frete</span>
-                  <span className="text-green-600">Grátis</span>
+                  <span className="cart-summary-row-free">Grátis</span>
                 </div>
               </div>
-              
+
               <Separator />
-              
-              <div className="flex justify-between font-semibold text-lg">
+
+              <div className="cart-summary-total">
                 <span>Total</span>
                 <span>R$ {getTotalPrice().toFixed(2).replace('.', ',')}</span>
               </div>
-              
-              <Button className="w-full" size="lg">
+
+              <Button className="cart-checkout-button" size="lg">
                 Finalizar Compra
               </Button>
-              
-              <div className="text-xs text-muted-foreground text-center space-y-1">
+
+              <div className="cart-summary-info">
                 <p>✓ Compra 100% segura</p>
                 <p>✓ Devolução gratuita em 30 dias</p>
               </div>

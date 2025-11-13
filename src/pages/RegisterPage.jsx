@@ -123,23 +123,23 @@ export function RegisterPage() {
     <div className="auth-container">
       <Card className="auth-card auth-card-register">
         <CardHeader className="auth-header">
-          <CardTitle className="text-2xl text-center">Criar Conta</CardTitle>
-          <CardDescription className="text-center">
+          <CardTitle className="auth-title">Criar Conta</CardTitle>
+          <CardDescription className="auth-description">
             Preencha seus dados para finalizar o cadastro
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="auth-form">
             
             {/* Dados Pessoais */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 mb-3">
-                <User className="h-5 w-5 text-primary" />
-                <h3 className="text-lg font-semibold">Dados Pessoais</h3>
+            <div className="auth-form-section">
+              <div className="auth-section-header">
+                <User className="auth-section-icon" />
+                <h3 className="auth-section-title">Dados Pessoais</h3>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
+              <div className="auth-grid">
+                <div className="auth-input-group">
                   <Label htmlFor="firstName">Nome *</Label>
                   <Input
                     id="firstName"
@@ -151,7 +151,7 @@ export function RegisterPage() {
                     required
                   />
                 </div>
-                <div className="space-y-2">
+                <div className="auth-input-group">
                   <Label htmlFor="lastName">Sobrenome *</Label>
                   <Input
                     id="lastName"
@@ -165,8 +165,8 @@ export function RegisterPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
+              <div className="auth-grid">
+                <div className="auth-input-group">
                   <Label htmlFor="cpf">CPF *</Label>
                   <Input
                     id="cpf"
@@ -179,7 +179,7 @@ export function RegisterPage() {
                     required
                   />
                 </div>
-                <div className="space-y-2">
+                <div className="auth-input-group">
                   <Label htmlFor="phone">Telefone *</Label>
                   <Input
                     id="phone"
@@ -194,8 +194,8 @@ export function RegisterPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
+              <div className="auth-grid">
+                <div className="auth-input-group">
                   <Label htmlFor="birthDate">Data de Nascimento *</Label>
                   <Input
                     id="birthDate"
@@ -206,7 +206,7 @@ export function RegisterPage() {
                     required
                   />
                 </div>
-                <div className="space-y-2">
+                <div className="auth-input-group">
                   <Label htmlFor="gender">Gênero</Label>
                   <Select value={formData.gender} onValueChange={(value) => handleSelectChange('gender', value)}>
                     <SelectTrigger>
@@ -226,14 +226,14 @@ export function RegisterPage() {
             <Separator />
 
             {/* Endereço */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 mb-3">
-                <MapPin className="h-5 w-5 text-primary" />
-                <h3 className="text-lg font-semibold">Endereço para Entrega</h3>
+            <div className="auth-form-section">
+              <div className="auth-section-header">
+                <MapPin className="auth-section-icon" />
+                <h3 className="auth-section-title">Endereço para Entrega</h3>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="space-y-2">
+              <div className="auth-grid-col-3">
+                <div className="auth-input-group">
                   <Label htmlFor="zipCode">CEP *</Label>
                   <Input
                     id="zipCode"
@@ -246,7 +246,7 @@ export function RegisterPage() {
                     required
                   />
                 </div>
-                <div className="space-y-2 md:col-span-2">
+                <div className="auth-input-group auth-grid-col-span-2">
                   <Label htmlFor="street">Rua/Avenida *</Label>
                   <Input
                     id="street"
@@ -260,8 +260,8 @@ export function RegisterPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="space-y-2">
+              <div className="auth-grid-col-3">
+                <div className="auth-input-group">
                   <Label htmlFor="number">Número *</Label>
                   <Input
                     id="number"
@@ -273,7 +273,7 @@ export function RegisterPage() {
                     required
                   />
                 </div>
-                <div className="space-y-2 md:col-span-2">
+                <div className="auth-input-group auth-grid-col-span-2">
                   <Label htmlFor="complement">Complemento</Label>
                   <Input
                     id="complement"
@@ -286,8 +286,8 @@ export function RegisterPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="space-y-2">
+              <div className="auth-grid-col-3">
+                <div className="auth-input-group">
                   <Label htmlFor="neighborhood">Bairro *</Label>
                   <Input
                     id="neighborhood"
@@ -299,7 +299,7 @@ export function RegisterPage() {
                     required
                   />
                 </div>
-                <div className="space-y-2">
+                <div className="auth-input-group">
                   <Label htmlFor="city">Cidade *</Label>
                   <Input
                     id="city"
@@ -311,7 +311,7 @@ export function RegisterPage() {
                     required
                   />
                 </div>
-                <div className="space-y-2">
+                <div className="auth-input-group">
                   <Label htmlFor="state">Estado *</Label>
                   <Select value={formData.state} onValueChange={(value) => handleSelectChange('state', value)}>
                     <SelectTrigger>
@@ -354,13 +354,13 @@ export function RegisterPage() {
             <Separator />
 
             {/* Dados de Acesso */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 mb-3">
-                <CreditCard className="h-5 w-5 text-primary" />
-                <h3 className="text-lg font-semibold">Dados de Acesso</h3>
+            <div className="auth-form-section">
+              <div className="auth-section-header">
+                <CreditCard className="auth-section-icon" />
+                <h3 className="auth-section-title">Dados de Acesso</h3>
               </div>
 
-              <div className="space-y-2">
+              <div className="auth-input-group">
                 <Label htmlFor="email">E-mail *</Label>
                 <Input
                   id="email"
@@ -373,10 +373,10 @@ export function RegisterPage() {
                 />
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
+              <div className="auth-grid">
+                <div className="auth-input-group">
                   <Label htmlFor="password">Senha *</Label>
-                  <div className="relative">
+                  <div className="auth-password-wrapper">
                     <Input
                       id="password"
                       name="password"
@@ -391,21 +391,21 @@ export function RegisterPage() {
                       type="button"
                       variant="ghost"
                       size="icon"
-                      className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                      className="auth-password-toggle"
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? (
-                        <EyeOff className="h-4 w-4" />
+                        <EyeOff />
                       ) : (
-                        <Eye className="h-4 w-4" />
+                        <Eye />
                       )}
                     </Button>
                   </div>
                 </div>
 
-                <div className="space-y-2">
+                <div className="auth-input-group">
                   <Label htmlFor="confirmPassword">Confirmar Senha *</Label>
-                  <div className="relative">
+                  <div className="auth-password-wrapper">
                     <Input
                       id="confirmPassword"
                       name="confirmPassword"
@@ -419,13 +419,13 @@ export function RegisterPage() {
                       type="button"
                       variant="ghost"
                       size="icon"
-                      className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                      className="auth-password-toggle"
                       onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                     >
                       {showConfirmPassword ? (
-                        <EyeOff className="h-4 w-4" />
+                        <EyeOff />
                       ) : (
-                        <Eye className="h-4 w-4" />
+                        <Eye />
                       )}
                     </Button>
                   </div>
@@ -436,13 +436,13 @@ export function RegisterPage() {
             <Separator />
 
             <div className="space-y-4">
-              <div className="flex items-center space-x-2">
+              <div className="auth-terms-checkbox">
                 <Checkbox
                   id="acceptTerms"
                   checked={formData.acceptTerms}
                   onCheckedChange={handleCheckboxChange}
                 />
-                <Label htmlFor="acceptTerms" className="text-sm">
+                <Label htmlFor="acceptTerms" className="auth-terms-label">
                   Aceito os{' '}
                   <Button variant="link" className="px-0 h-auto text-sm">
                     termos e condições
@@ -454,7 +454,7 @@ export function RegisterPage() {
                 </Label>
               </div>
               
-              <Button type="submit" className="w-full" size="lg">
+              <Button type="submit" className="auth-submit-button" size="lg">
                 Criar Conta
               </Button>
             </div>
@@ -462,22 +462,22 @@ export function RegisterPage() {
 
           <Separator />
 
-          <div className="text-center text-sm">
-            <span className="text-muted-foreground">Já tem uma conta? </span>
+          <div className="auth-link-container">
+            <span className="auth-link-text">Já tem uma conta? </span>
             <Button
               variant="link"
-              className="px-0"
-              onClick={() => onNavigate('login')}
+              className="auth-link"
+              onClick={() => navigate('/login')}
             >
               Faça login
             </Button>
           </div>
 
-          <div className="text-center">
+          <div className="auth-continue-wrapper">
             <Button
               variant="outline"
-              onClick={() => onNavigate('home')}
-              className="w-full"
+              onClick={() => navigate('/')}
+              className="auth-continue-button"
             >
               Continuar sem cadastro
             </Button>

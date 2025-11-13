@@ -1,0 +1,234 @@
+/* src/pages/ProductPage.css */
+
+.product-page-container {
+  /* container mx-auto px-4 py-6 */
+  max-width: 1280px;
+  margin: auto;
+  padding: 1.5rem 1rem;
+}
+
+.product-page-back-button {
+  margin-bottom: 1.5rem;
+}
+.product-page-back-button svg {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+.product-page-layout {
+  /* grid grid-cols-1 lg:grid-cols-2 gap-8 */
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+}
+@media (min-width: 1024px) {
+  .product-page-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Coluna da Imagem */
+.product-page-image-card {
+  /* .ui-card */
+  padding: 0;
+}
+.product-page-image-wrapper {
+  /* aspect-square overflow-hidden rounded-lg */
+  padding: 0 !important; /* Sobrescreve .ui-card-content */
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+.product-page-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Coluna de Informações */
+.product-page-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* space-y-6 */
+}
+
+.product-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.product-page-title {
+  /* text-3xl font-bold */
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+.product-page-rating {
+  /* flex items-center gap-2 mb-4 */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.product-page-rating-stars {
+  display: flex;
+}
+.product-page-rating-stars svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.star-filled {
+  color: #facc15; /* yellow-400 */
+}
+.star-empty {
+  color: #d1d5db; /* gray-300 */
+}
+.product-page-rating-text {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.product-page-price {
+  /* text-4xl font-bold text-primary mb-6 */
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.product-page-description-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.product-page-description-text {
+  color: var(--muted-foreground);
+  line-height: 1.625;
+}
+
+.product-page-quantity-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.product-page-quantity-selector {
+  /* flex items-center gap-3 */
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.product-page-quantity-display {
+  width: 3rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.product-page-actions {
+  /* flex gap-3 */
+  display: flex;
+  gap: 0.75rem;
+}
+.product-page-add-button {
+  flex: 1; /* flex-1 */
+}
+
+/* Calculadora de Frete */
+.product-page-shipping-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.product-page-shipping-form {
+  display: flex;
+  gap: 0.5rem;
+}
+.product-page-shipping-input-wrapper {
+  flex: 1;
+}
+.product-page-shipping-button {
+  min-width: 100px;
+  flex-shrink: 0;
+  align-self: flex-end; /* Alinha com o input */
+}
+.product-page-shipping-loading-spinner {
+  animation: spin 1s linear infinite;
+  width: 1rem;
+  height: 1rem;
+  border-bottom: 2px solid white;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.product-page-shipping-results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.product-page-shipping-result-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.product-page-shipping-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-page-shipping-result-details {
+  font-weight: 500;
+}
+.product-page-shipping-result-description {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+.product-page-shipping-result-price-time {
+  text-align: right;
+}
+.product-page-shipping-result-price {
+  font-weight: 600;
+}
+.product-page-shipping-result-price-free {
+  font-weight: 600;
+  color: #16a085; /* verde */
+}
+.product-page-shipping-result-time {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.product-page-shipping-result-time svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+.product-page-shipping-footer-text {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  margin-top: 0.5rem;
+}
+
+.product-page-shipping-default-text {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.product-page-info-list {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}

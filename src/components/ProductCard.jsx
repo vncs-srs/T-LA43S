@@ -5,7 +5,7 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ImageWithFallback } from '@/components/ImageWithFallback';
-import '@/styles/cart.css';
+import '@/styles/ProductCard.css';
 
 export function ProductCard({ product, onProductClick }) {
   const { addToCart } = useCart();

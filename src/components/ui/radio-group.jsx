@@ -1,24 +1,28 @@
-import React from "react";
+import React, { createContext, useContext } from "react";
 
-export function RadioGroup({ children, className = "", ...props }) {
+const RadioGroupContext = createContext();
+
+export function RadioGroup({ children, value, onValueChange, className, ...props }) {
   return (
-    <div
-      className={`flex flex-col space-y-2 ${className}`}
-      {...props}
-    >
-      {children}
-    </div>
+    <RadioGroupContext.Provider value={{ value, onValueChange }}>
+      <div className={className} {...props}>
+        {children}
+      </div>
+    </RadioGroupContext.Provider>
   );
 }
-export function RadioGroupItem({ children, className = "", ...props }) {
+
+export function RadioGroupItem({ value, id, ...props }) {
+  const context = useContext(RadioGroupContext);
+  
   return (
-    <label className={`inline-flex items-center space-x-2 ${className}`}>
-      <input
-        type="radio"
-        className="form-radio text-blue-500"
-        {...props}
-      />
-      <span>{children}</span>
-    </label>
+    <input
+      type="radio"
+      id={id}
+      value={value}
+      checked={context.value === value}
+      onChange={(e) => context.onValueChange(e.target.value)}
+      {...props}
+    />
   );
 }

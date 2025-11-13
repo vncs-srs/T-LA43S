@@ -3,7 +3,7 @@ import React from "react";
 export function Card({ children, className = "", ...props }) {
   return (
     <div
-      className={`border rounded-lg shadow-sm p-4 ${className}`}
+      className={`ui-card ${className}`}
       {...props}
     >
       {children}
@@ -13,7 +13,7 @@ export function Card({ children, className = "", ...props }) {
 export function CardContent({ children, className = "", ...props }) {
   return (
     <div
-      className={`mb-4 ${className}`}
+      className={`ui-card-content ${className}`}
       {...props}
     >
       {children}
@@ -23,7 +23,7 @@ export function CardContent({ children, className = "", ...props }) {
 export function CardFooter({ children, className = "", ...props }) {
   return (
     <div
-      className={`pt-4 border-t ${className}`}
+      className={`ui-card-footer ${className}`}
       {...props}
     >
       {children}
@@ -33,7 +33,7 @@ export function CardFooter({ children, className = "", ...props }) {
 export function CardHeader({ children, className = "", ...props }) {
   return (
     <div
-      className={`mb-4 border-b pb-2 ${className}`}
+      className={`ui-card-header ${className}`}
       {...props}
     >
       {children}
@@ -43,7 +43,7 @@ export function CardHeader({ children, className = "", ...props }) {
 export function CardTitle({ children, className = "", ...props }) {
   return (
     <h2
-      className={`text-lg font-semibold ${className}`}
+      className={`ui-card-title ${className}`}
       {...props}
     >
       {children}
@@ -53,7 +53,7 @@ export function CardTitle({ children, className = "", ...props }) {
 export function CardDescription({ children, className = "", ...props }) {
   return (
     <p
-      className={`text-sm text-gray-500 ${className}`}
+      className={`ui-card-description ${className}`}
       {...props}
     >
       {children}

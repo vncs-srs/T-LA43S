@@ -8,7 +8,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Cores (Baseado no Figma) */
+  /* Cores (Baseado no Figma) seguindo prototipo*/
   --background: #ffffff; /* Fundo principal (branco) */
   --foreground: #000000; /* Texto principal (preto) */
   --card: #ffffff; /* Fundo dos cards (branco) */
@@ -91,7 +91,7 @@ body {
   color: var(--muted-foreground);
 }
 
-/* Button (Baseado no Figma) */
+/* Button (Baseado no Figma), por enquanto não funciona direito */
 .ui-button {
   display: inline-flex;
   align-items: center;
@@ -180,8 +180,8 @@ body {
   display: inline-flex;
   align-items: center;
   border-radius: 9999px;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.75rem;
+  padding: 0.01rem 0.01rem;
+  font-size: 0.65rem;
   font-weight: 500;
 }
 

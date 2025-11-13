@@ -9,6 +9,16 @@ export const mockProducts = [
     rating: 4.8,
     reviews: 124
   },
+    {
+    id: '2',
+    name: 'churaquira ',
+    price: 47.55,
+    image: 'https://images.unsplash.com/photo-1643290369779-c6bec760cf18?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVjdHJvbmljcyUyMGxhcHRvcCUyMGNvbXB1dGVyfGVufDF8fHx8MTc1OTIyMjMwOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    category: 'Casa e Jardim',
+    description: 'Laptop de alta performance top.',
+    rating: 4.8,
+    reviews: 124
+  },
   
 
 ];

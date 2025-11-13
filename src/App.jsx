@@ -18,17 +18,15 @@ export default function App() {
   const [selectedCategory, setSelectedCategory] = useState('Todas as Categorias');
   const [selectedPriceRange, setSelectedPriceRange] = useState('Todos os preços');
 
-  // Lógica de filtragem reintroduzida
+  // Lógica de filtragem
   const filteredProducts = useMemo(() => {
     return mockProducts.filter(product => {
       // 1. Filtrar por termo de busca
       const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                             product.description.toLowerCase().includes(searchTerm.toLowerCase());
-
       // 2. Filtrar por categoria
       const matchesCategory = selectedCategory === 'Todas as Categorias' || 
                               product.category === selectedCategory;
-
       // 3. Filtrar por faixa de preço
       const range = priceRanges.find(r => r.label === selectedPriceRange) || priceRanges[0];
       const matchesPrice = product.price >= range.min && product.price <= range.max;
@@ -43,13 +41,15 @@ export default function App() {
 
   return (
     <CartProvider>
-      <div className="min-h-screen bg-background flex flex-col">
+      {/* 1. Use app-container aqui */}
+      <div className="app-container">
         <Navbar
           onSearchChange={setSearchTerm}
           onMenuToggle={toggleSidebar}
         />
 
-        <div className="flex flex-1">
+        {/* 2. Use app-layout para ativar o flexbox */}
+        <div className="app-layout">
           <Sidebar
             isOpen={sidebarOpen}
             onClose={() => setSidebarOpen(false)}
@@ -59,10 +59,10 @@ export default function App() {
             onPriceRangeChange={setSelectedPriceRange}
           />
 
-          <main className="flex-1 lg:ml-64">
+          {/* 3.app-main-content */}
+          <main className="app-main-content">
             <Routes>
               <Route path="/" element={<HomePage products={filteredProducts} />} />
-              {/* O ProductPage agora lida com a busca de dados pela URL ou estado de navegação */}
               <Route path="/product/:id" element={<ProductPage />} /> 
               <Route path="/cart" element={<CartPage />} />
               <Route path="/login" element={<LoginPage />} />

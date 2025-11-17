@@ -177,3 +177,9 @@
   height: auto;
   font-size: 0.875rem;
 }
+/* Gabiarra para regular o tamanho dos inputs para melhor usabilidade */
+.auth-input-group .ui-input {
+  height: 2rem; /* regulagem caixa tamanho */
+  padding: 0rem 0.09rem;
+  font-size: 0.9rem; /* fonte */
+}

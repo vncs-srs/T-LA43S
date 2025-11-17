@@ -74,13 +74,13 @@ body {
 /* Input */
 .ui-input {
   display: flex;
-  height: 2.5rem; /* 40px */
+  height: 1rem; /* 40px altura*/
   width: 100%;
   border-radius: var(--radius);
   border: 1px solid var(--input);
   background-color: var(--background);
-  padding: 0.5rem 0.75rem;
-  font-size: 0.875rem;
+  padding: 0.3rem 2rem;
+  font-size: 0.875rem; /*tamanho da fonte */
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui-input:focus {

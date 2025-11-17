@@ -107,7 +107,7 @@ body {
   transition: background-color 0.2s, opacity 0.2s;
 }
 .ui-button:focus {
-  outline: 2px solid var(--ring);
+  outline: 1px solid var(--ring);
   outline-offset: 2px;
 }
 .ui-button:disabled {
@@ -167,7 +167,7 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* Separator */
+/* Separador de campo */
 .ui-separator {
   border: 0;
   height: 1px;

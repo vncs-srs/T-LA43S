@@ -41,14 +41,14 @@ export default function App() {
 
   return (
     <CartProvider>
-      {/* 1. Use app-container aqui */}
+      {/* 1.app-container aqui */}
       <div className="app-container">
         <Navbar
           onSearchChange={setSearchTerm}
           onMenuToggle={toggleSidebar}
         />
 
-        {/* 2. Use app-layout para ativar o flexbox */}
+        {/* 2.app-layout para ativar o flexbox */}
         <div className="app-layout">
           <Sidebar
             isOpen={sidebarOpen}

@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube,
-  Shield, CreditCard, Smartphone
+  Shield
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -32,17 +32,18 @@ export function Footer() {
               Qualidade garantida e entrega rápida em todo o Brasil.
             </p>
             <div className="footer-socials">
-              <Button variant="outline" size="icon" className="footer-social-button">
-                <Facebook className="h-4 w-4" />
+              {/* Usando variant="ghost" e a classe CSS controla a borda e tamanho */}
+              <Button variant="ghost" size="icon" className="footer-social-button">
+                <Facebook />
               </Button>
-              <Button variant="outline" size="icon" className="footer-social-button">
-                <Instagram className="h-4 w-4" />
+              <Button variant="ghost" size="icon" className="footer-social-button">
+                <Instagram />
               </Button>
-              <Button variant="outline" size="icon" className="footer-social-button">
-                <Twitter className="h-4 w-4" />
+              <Button variant="ghost" size="icon" className="footer-social-button">
+                <Twitter />
               </Button>
-              <Button variant="outline" size="icon" className="footer-social-button">
-                <Youtube className="h-4 w-4" />
+              <Button variant="ghost" size="icon" className="footer-social-button">
+                <Youtube />
               </Button>
             </div>
           </div>
@@ -67,10 +68,6 @@ export function Footer() {
               <li className="footer-contact-item">
                 <Phone className="footer-contact-icon" />
                 <span className="footer-contact-text">(11) 4000-1234</span>
-              </li>
-              <li className="footer-contact-item">
-                <Smartphone className="footer-contact-icon" />
-                <span className="footer-contact-text">(11) 99999-8888</span>
               </li>
               <li className="footer-contact-item">
                 <Mail className="footer-contact-icon" />

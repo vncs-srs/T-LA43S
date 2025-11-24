@@ -146,7 +146,7 @@ export function ProductPage() {
           <Separator />
 
           {/* Controles de Compra */}
-          <div className="space-y-4">
+            <div className="product-page-purchase-section"> 
             <div>
               <label className="product-page-quantity-label">Quantidade</label>
               <div className="product-page-quantity-selector">
@@ -161,7 +161,8 @@ export function ProductPage() {
             </div>
 
             <div className="product-page-actions">
-              <Button onClick={handleAddToCart} size="lg" className="product-page-add-button">
+              {/* Remova a classe específica 'product-page-add-button' se quiser ambos iguais no CSS */}
+              <Button onClick={handleAddToCart} size="lg"> 
                 <ShoppingCart className="w-5 h-5 mr-2" />
                 Adicionar ao Carrinho
               </Button>

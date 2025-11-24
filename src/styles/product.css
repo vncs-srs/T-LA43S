@@ -232,3 +232,28 @@
   flex-direction: column;
   gap: 0.25rem;
 }
+/* Container que agrupa Quantidade e Botões */
+.product-page-purchase-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espaço vertical entre a Quantidade e os Botões */
+}
+
+/* Área dos Botões */
+.product-page-actions {
+  display: flex;
+  flex-direction: column; /* Em mobile, um embaixo do outro */
+  gap: 1rem; /* Espaço entre os botões */
+}
+
+/* A partir de telas maiores (Tablet/Desktop), coloca lado a lado */
+@media (min-width: 640px) {
+  .product-page-actions {
+    flex-direction: row;
+  }
+}
+
+/* Faz com que AMBOS os botões ocupem o mesmo espaço (largura igual) */
+.product-page-actions .ui-button {
+  flex: 1;
+}

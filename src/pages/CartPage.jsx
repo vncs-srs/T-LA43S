@@ -11,7 +11,12 @@ import '@/styles/cart.css';
 export function CartPage() {
   const navigate = useNavigate();
   const { items, updateQuantity, removeFromCart, getTotalPrice, getTotalItems, clearCart } = useCart();
-
+  const handleRemoveItem = (productId, productName) => {
+    const isConfirmed = window.confirm(`Deseja realmente remover "${productName}" do carrinho?`);
+    if (isConfirmed) {
+      removeFromCart(productId);
+    }
+  };
   if (items.length === 0) {
     return (
       <div className="cart-page-container">
@@ -54,23 +59,39 @@ export function CartPage() {
                       <p className="cart-item-category">{product.category}</p>
                     </div>
 
+                    {/* 2. Alteração na estrutura de controles */}
                     <div className="cart-item-controls">
-                      <div className="cart-item-quantity-selector">
+                      
+                      {/* Novo wrapper para agrupar Quantidade + Botão Remover */}
+                      <div className="cart-item-actions-left">
+                        <div className="cart-item-quantity-selector">
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            onClick={() => updateQuantity(product.id, quantity - 1)}
+                            disabled={quantity <= 1}
+                          >
+                            <Minus className="w-4 h-4" />
+                          </Button>
+                          <span className="cart-item-quantity-display">{quantity}</span>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            onClick={() => updateQuantity(product.id, quantity + 1)}
+                          >
+                            <Plus className="w-4 h-4" />
+                          </Button>
+                        </div>
+
+                        {/* Botão movido para cá e com a nova função de clique */}
                         <Button
-                          variant="outline"
-                          size="icon"
-                          onClick={() => updateQuantity(product.id, quantity - 1)}
-                          disabled={quantity <= 1}
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleRemoveItem(product.id, product.name)}
+                          className="cart-item-remove-button"
                         >
-                          <Minus className="w-4 h-4" />
-                        </Button>
-                        <span className="cart-item-quantity-display">{quantity}</span>
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          onClick={() => updateQuantity(product.id, quantity + 1)}
-                        >
-                          <Plus className="w-4 h-4" />
+                          <Trash2 className="w-4 h-4 mr-2" />
+                          Remover
                         </Button>
                       </div>
 
@@ -83,16 +104,6 @@ export function CartPage() {
                         </p>
                       </div>
                     </div>
-
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => removeFromCart(product.id)}
-                      className="cart-item-remove-button"
-                    >
-                      <Trash2 />
-                      Remover
-                    </Button>
                   </div>
                 </div>
               </CardContent>
@@ -114,13 +125,15 @@ export function CartPage() {
         </div>
 
         {/* Resumo do Pedido */}
-        <div>
+<div>
           <Card className="cart-summary-card">
             <CardHeader>
               <CardTitle>Resumo do Pedido</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-2">
+            
+            {/* Adicione a classe aqui */}
+            <CardContent className="cart-summary-content">
+              <div className="cart-summary-rows-container">
                 <div className="cart-summary-row">
                   <span>Subtotal ({getTotalItems()} itens)</span>
                   <span>R$ {getTotalPrice().toFixed(2).replace('.', ',')}</span>

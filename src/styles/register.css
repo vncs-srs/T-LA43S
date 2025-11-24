@@ -179,7 +179,9 @@
 }
 /* Gabiarra para regular o tamanho dos inputs para melhor usabilidade */
 .auth-input-group .ui-input {
-  height: 2rem; /* regulagem caixa tamanho */
-  padding: 0rem 0.09rem;
+  height: 2.5rem; /* regulagem caixa tamanho */
+  padding: 0rem 0.75rem;
   font-size: 0.9rem; /* fonte */
+  box-sizing: border-box;
+  width: 100%;
 }

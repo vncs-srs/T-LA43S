@@ -27,7 +27,7 @@
   --destructive-foreground: #ffffff;
   --border: #e5e7eb; /* cinza-200 (para bordas) */
   --input: #e5e7eb; /* Borda do input */
-  --ring: #000000; /* Anel de foco (preto) */
+  --ring: #0c6c99; /* Anel de foco (azul) */
   --radius: 0.5rem; /* Raio da borda (8px) */
 
   color-scheme: light;
@@ -84,7 +84,7 @@ body {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui-input:focus {
-  outline: 2px solid var(--ring);
+  outline: 2px solid var(--ring);;
   outline-offset: 2px;
 }
 .ui-input::placeholder {
@@ -107,7 +107,7 @@ body {
   transition: background-color 0.2s, opacity 0.2s;
 }
 .ui-button:focus {
-  outline: 1px solid var(--ring);
+  /*outline: 1px solid var(--ring);*/
   outline-offset: 2px;
 }
 .ui-button:disabled {

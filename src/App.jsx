@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom'; // [1] Importar useLocation
 import { CartProvider } from '@/contexts/CartContext';
 import { mockProducts, priceRanges } from '@/data/products';
 import { Navbar } from '@/components/Navbar';
@@ -18,16 +18,19 @@ export default function App() {
   const [selectedCategory, setSelectedCategory] = useState('Todas as Categorias');
   const [selectedPriceRange, setSelectedPriceRange] = useState('Todos os preços');
 
+  // [2] Obter a localização atual
+  const location = useLocation();
+
+  // [3] Definir quando a Sidebar deve aparecer (apenas na home '/')
+  const showSidebar = location.pathname === '/';
+
   // Lógica de filtragem
   const filteredProducts = useMemo(() => {
     return mockProducts.filter(product => {
-      // 1. Filtrar por termo de busca
       const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                             product.description.toLowerCase().includes(searchTerm.toLowerCase());
-      // 2. Filtrar por categoria
       const matchesCategory = selectedCategory === 'Todas as Categorias' || 
                               product.category === selectedCategory;
-      // 3. Filtrar por faixa de preço
       const range = priceRanges.find(r => r.label === selectedPriceRange) || priceRanges[0];
       const matchesPrice = product.price >= range.min && product.price <= range.max;
 
@@ -41,26 +44,27 @@ export default function App() {
 
   return (
     <CartProvider>
-      {/* 1.app-container aqui */}
       <div className="app-container">
         <Navbar
           onSearchChange={setSearchTerm}
           onMenuToggle={toggleSidebar}
         />
 
-        {/* 2.app-layout para ativar o flexbox */}
         <div className="app-layout">
-          <Sidebar
-            isOpen={sidebarOpen}
-            onClose={() => setSidebarOpen(false)}
-            selectedCategory={selectedCategory}
-            onCategoryChange={setSelectedCategory}
-            selectedPriceRange={selectedPriceRange}
-            onPriceRangeChange={setSelectedPriceRange}
-          />
+          {/* [4] Renderização Condicional da Sidebar */}
+          {showSidebar && (
+            <Sidebar
+              isOpen={sidebarOpen}
+              onClose={() => setSidebarOpen(false)}
+              selectedCategory={selectedCategory}
+              onCategoryChange={setSelectedCategory}
+              selectedPriceRange={selectedPriceRange}
+              onPriceRangeChange={setSelectedPriceRange}
+            />
+          )}
 
-          {/* 3.app-main-content */}
-          <main className="app-main-content">
+          {/* [5] Adicionar classe condicional para remover a margem se não houver sidebar */}
+          <main className={`app-main-content ${!showSidebar ? 'no-sidebar' : ''}`}>
             <Routes>
               <Route path="/" element={<HomePage products={filteredProducts} />} />
               <Route path="/product/:id" element={<ProductPage />} /> 

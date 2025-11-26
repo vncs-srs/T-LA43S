@@ -39,7 +39,7 @@ export function RegisterPage() {
     acceptTerms: false
   });
 
-  const handleSubmit = (e) => {
+const handleSubmit = (e) => {
     e.preventDefault();
     
     if (formData.password !== formData.confirmPassword) {
@@ -66,10 +66,25 @@ export function RegisterPage() {
       return;
     }
     
-    console.log('Register attempt:', formData);
-    alert('Cadastro realizado com sucesso!');
-    // Por enquanto, apenas navega para login
-    navigate('/login');;
+    // --- LÓGICA DE SALVAR NO LOCALSTORAGE ---
+    const userToSave = {
+      ...formData,
+      createdAt: new Date().toISOString()
+    };
+
+    try {
+      // Salva os dados do usuário com a chave 'marketplace_user'
+      localStorage.setItem('marketplace_user', JSON.stringify(userToSave));
+      
+      console.log('Register attempt saved:', userToSave);
+      alert('Cadastro realizado com sucesso e dados salvos!');
+      
+      // Navega para login
+      navigate('/login');
+    } catch (error) {
+      console.error("Erro ao salvar no localStorage", error);
+      alert('Erro ao salvar os dados localmente.');
+    }
   };
 
   const handleChange = (e) => {

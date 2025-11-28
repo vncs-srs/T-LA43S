@@ -109,33 +109,31 @@
 
 /* Card Footer (Preço e Botão) */
 .product-card-footer {
-  /* Remove a borda padrão do .ui-card-footer */
   border-top: none;
   padding: 1rem;
   padding-top: 0;
   display: flex;
   align-items: center; 
   justify-content: space-between;
-  flex-wrap: wrap;   /* Permite que o botão desça se não houver espaço */
-  gap: 0.5rem;       /* Adiciona espaço entre o preço e o botão */
+  flex-wrap: wrap;   /* Permite quebrar linha se faltar espaço */
+  gap: 0.75rem;      /* Espaço entre preço e botão */
 }
+
 /* Quando o botão desce para a segunda linha, ele estica para preencher o espaço */
 .product-card-footer > button {
   flex-grow: 1; 
+  min-width: 110px;
 }
 /* Garante que o container do preço não estique demais empurrando o botão */
 .product-card-price-wrapper {
-  flex-shrink: 0;
-}
-
-.product-card-price-wrapper {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;      /* Impede que o preço seja "esmagado" pelo botão */
+  white-space: nowrap; /* Impede que o texto do preço quebre linha */
 }
 
 .product-card-price {
-  /* text-2xl font-bold text-primary */
-  font-size: 1.5rem;
+  font-size: 1.25rem; 
   font-weight: 700;
   color: var(--primary); 
 }

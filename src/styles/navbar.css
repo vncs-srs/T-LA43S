@@ -74,10 +74,10 @@
   color: var(--muted-foreground);
   height: 1rem;
   width: 1rem;
+  pointer-events: none; 
 }
-
-.navbar-search-input {
-  padding-left: 2.5rem;
+.navbar-search-wrapper .navbar-search-input {
+  padding-left: 2.5rem; /* Garante espaço para o ícone */
   width: 100%;
 }
 

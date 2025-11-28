@@ -4,6 +4,16 @@
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 40;
+  display: none; /* Escondido por padrão */
+}
+/* Overlay aparece apenas no mobile quando open */
+.sidebar-overlay.open {
+  display: block;
+}
+@media (min-width: 1024px) {
+  .sidebar-overlay.open {
+    display: none; /* No desktop, nunca mostra o overlay */
+  }
 }
 
 .sidebar-container {
@@ -17,26 +27,21 @@
   z-index: 50;
   overflow-y: auto;
   transition: transform 0.3s ease-in-out;
-  transform: translateX(-100%); /* Oculto por padrão no mobile */
+  transform: translateX(-100%); /* Oculto por padrão */
 }
 
 .sidebar-container.open {
-  transform: translateX(0); /* Mostra no mobile quando 'open' */
+  transform: translateX(0); /* Mostra quando tem a classe open */
 }
 
 /* Estilos de Desktop (lg:) */
-@media (min-width: 1024px) {
-  .sidebar-overlay {
-    display: none; /* Oculta overlay no desktop */
-  }
+/* @media (min-width: 1024px) {
+  
   .sidebar-container {
-    position: relative;
-    top: 0;
-    z-index: 0;
-    transform: translateX(0); /* Sempre visível no desktop */
+
   }
 }
-
+ */
 .sidebar-content {
   padding: 1rem;
 }
@@ -47,15 +52,15 @@
   justify-content: space-between;
   margin-bottom: 1rem;
 }
+/*Vou manter oculto o header no desktop para ficar mais limpo. */
 @media (min-width: 1024px) {
   .sidebar-header {
-    display: none; /* Oculta header "Filtros" e "X" no desktop */
+    display: none; 
   }
 }
 
 /* Card de Filtro */
 .sidebar-filter-card {
-  /* Remove o estilo padrão do card para se misturar */
   border: none;
   box-shadow: none;
   padding: 1rem;
@@ -64,7 +69,7 @@
 
 .sidebar-filter-title {
   margin-bottom: 1rem;
-  font-weight: 600; /* h3 */
+  font-weight: 600;
 }
 
 .sidebar-category-list {
@@ -83,6 +88,9 @@
   background: none;
   border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Para alinhar texto e icone */
 }
 .sidebar-category-button:hover {
   background-color: var(--muted);
@@ -90,6 +98,31 @@
 .sidebar-category-button.selected {
   background-color: var(--primary);
   color: var(--primary-foreground);
+}
+
+/* Estilos do Submenu */
+.sidebar-submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-left: 0.5rem; /* Indentação */
+  border-left: 2px solid var(--border);
+  padding-left: 0.5rem;
+  animation: slideDown 0.2s ease-out;
+}
+
+.sidebar-submenu-trigger {
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.sidebar-submenu-item {
+  font-size: 0.85rem;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Faixa de Preço (Radio Group) */
@@ -106,7 +139,7 @@
 .sidebar-radio-label {
   font-size: 0.875rem;
   cursor: pointer;
-  margin-bottom: 0; /* Reseta o margin-bottom do ui-label */
+  margin-bottom: 0;
 }
 
 .sidebar-clear-button {

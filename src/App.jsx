@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom'; // [1] Importar useLocation
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { CartProvider } from '@/contexts/CartContext';
 import { mockProducts, priceRanges } from '@/data/products';
 import { Navbar } from '@/components/Navbar';
@@ -13,15 +13,13 @@ import { RegisterPage } from '@/pages/RegisterPage';
 import '@/styles/app.css';
 
 export default function App() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true); 
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Todas as Categorias');
   const [selectedPriceRange, setSelectedPriceRange] = useState('Todos os preços');
 
-  // [2] Obter a localização atual
   const location = useLocation();
 
-  // [3] Definir quando a Sidebar deve aparecer (apenas na home '/')
   const showSidebar = location.pathname === '/';
 
   // Lógica de filtragem
@@ -51,7 +49,6 @@ export default function App() {
         />
 
         <div className="app-layout">
-          {/* [4] Renderização Condicional da Sidebar */}
           {showSidebar && (
             <Sidebar
               isOpen={sidebarOpen}
@@ -63,8 +60,7 @@ export default function App() {
             />
           )}
 
-          {/* [5] Adicionar classe condicional para remover a margem se não houver sidebar */}
-          <main className={`app-main-content ${!showSidebar ? 'no-sidebar' : ''}`}>
+          <main className={`app-main-content ${!showSidebar || !sidebarOpen ? 'no-sidebar' : ''}`}>
             <Routes>
               <Route path="/" element={<HomePage products={filteredProducts} />} />
               <Route path="/product/:id" element={<ProductPage />} /> 

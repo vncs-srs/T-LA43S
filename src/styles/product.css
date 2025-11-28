@@ -139,17 +139,21 @@
   align-items: center;
   gap: 0.5rem;
 }
+
 .product-page-shipping-form {
   display: flex;
-  gap: 0.5rem;
+  flex-direction: column; /* Empilha um embaixo do outro no mobile */
+  gap: 1rem;
 }
+
 .product-page-shipping-input-wrapper {
   flex: 1;
+  width: 100%;
 }
+
 .product-page-shipping-button {
-  min-width: 100px;
-  flex-shrink: 0;
-  align-self: flex-end; /* Alinha com o input */
+  width: 100%; /* Botão largo no mobile para facilitar o toque */
+  height: 2.5rem; /* Garante a altura igual ao input */
 }
 .product-page-shipping-loading-spinner {
   animation: spin 1s linear infinite;
@@ -248,11 +252,19 @@
 
 /* A partir de telas maiores (Tablet/Desktop), coloca lado a lado */
 @media (min-width: 640px) {
-  .product-page-actions {
-    flex-direction: row;
+  .product-page-shipping-form {
+    flex-direction: row; /* Volta para lado a lado */
+    align-items: flex-end; /* Alinha o botão com a base do input */
+    gap: 0.5rem;
+  }
+
+  .product-page-shipping-button {
+    width: auto; /* Largura automática */
+    min-width: 100px;
+    flex-shrink: 0;
+    align-self: flex-end;
   }
 }
-
 /* Faz com que AMBOS os botões ocupem o mesmo espaço (largura igual) */
 .product-page-actions .ui-button {
   flex: 1;

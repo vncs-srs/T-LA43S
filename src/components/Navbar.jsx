@@ -10,7 +10,7 @@ import '@/styles/navbar.css';
 export function Navbar({ onSearchChange, onMenuToggle }) { 
   const [searchTerm, setSearchTerm] = useState('');
   const { getTotalItems } = useCart();
-  const navigate = useNavigate(); // Novo hook
+  const navigate = useNavigate();
 
   const handleSearchChange = (e) => {
     const value = e.target.value;
@@ -27,7 +27,7 @@ export function Navbar({ onSearchChange, onMenuToggle }) {
             variant="ghost" 
             size="icon" 
             onClick={onMenuToggle} 
-            className="navbar-menu-toggle"
+            className="navbar-menu-toggle" /* Classe mantida, vamos alterar o CSS dela */
           >
             <Menu className="h-5 w-5" />
           </Button>

@@ -19,7 +19,6 @@ export function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login attempt:', formData);
-    // Por enquanto, apenas navega de volta para home
     navigate('/');
   };
 
@@ -115,7 +114,7 @@ export function LoginPage() {
           <div className="auth-continue-wrapper">
             <Button
               variant="outline"
-              onClick={() => navigate('/')} // Corrigido o navegamento para a página inicial
+              onClick={() => navigate('/')}
               className="auth-continue-button"
             >
               Continuar sem login

@@ -56,7 +56,7 @@ export function CartProvider({ children }) {
   };
 
   const clearCart = () => {
-    setItems([]); // O useEffect limpará o localStorage automaticamente
+    setItems([]); 
   };
 
   return (

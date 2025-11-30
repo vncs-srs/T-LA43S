@@ -4,34 +4,34 @@
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 40;
-  display: none; /* Escondido por padrão */
+  display: none; 
 }
-/* Overlay aparece apenas no mobile quando open */
+
 .sidebar-overlay.open {
   display: block;
 }
 @media (min-width: 1024px) {
   .sidebar-overlay.open {
-    display: none; /* No desktop, nunca mostra o overlay */
+    display: none;
   }
 }
 
 .sidebar-container {
   position: fixed;
-  top: 4rem; /* h-16 (altura da navbar) */
+  top: 4rem; 
   left: 0;
   height: calc(100vh - 4rem);
-  width: 16rem; /* w-64 */
+  width: 16rem; 
   background-color: var(--background);
   border-right: 1px solid var(--border);
   z-index: 50;
   overflow-y: auto;
   transition: transform 0.3s ease-in-out;
-  transform: translateX(-100%); /* Oculto por padrão */
+  transform: translateX(-100%); 
 }
 
 .sidebar-container.open {
-  transform: translateX(0); /* Mostra quando tem a classe open */
+  transform: translateX(0); /
 }
 
 /* Estilos de Desktop (lg:) */
@@ -52,7 +52,7 @@
   justify-content: space-between;
   margin-bottom: 1rem;
 }
-/*Vou manter oculto o header no desktop para ficar mais limpo. */
+
 @media (min-width: 1024px) {
   .sidebar-header {
     display: none; 
@@ -91,7 +91,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--foreground); /* Garante cor padrão */
+  color: var(--foreground); 
 }
 
 .sidebar-category-button:hover {
@@ -108,7 +108,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  margin-left: 0.5rem; /* Indentação */
+  margin-left: 0.5rem; 
   border-left: 2px solid var(--border);
   padding-left: 0.5rem;
   animation: slideDown 0.2s ease-out;
@@ -132,7 +132,7 @@
 }
 
 .sidebar-submenu-item.selected {
-  background-color: var(--secondary); /* Cor diferente para subitem selecionado */
+  background-color: var(--secondary); 
   color: var(--primary);
   font-weight: 500;
 }

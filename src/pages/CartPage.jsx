@@ -62,7 +62,6 @@ export function CartPage() {
                     {/* 2. Alteração na estrutura de controles */}
                     <div className="cart-item-controls">
                       
-                      {/* Novo wrapper para agrupar Quantidade + Botão Remover */}
                       <div className="cart-item-actions-left">
                         <div className="cart-item-quantity-selector">
                           <Button
@@ -83,7 +82,6 @@ export function CartPage() {
                           </Button>
                         </div>
 
-                        {/* Botão movido para cá e com a nova função de clique */}
                         <Button
                           variant="ghost"
                           size="sm"
@@ -130,8 +128,6 @@ export function CartPage() {
             <CardHeader>
               <CardTitle>Resumo do Pedido</CardTitle>
             </CardHeader>
-            
-            {/* Adicione a classe aqui */}
             <CardContent className="cart-summary-content">
               <div className="cart-summary-rows-container">
                 <div className="cart-summary-row">

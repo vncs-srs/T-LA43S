@@ -1,7 +1,6 @@
 /* src/components/ProductCard.css */
 
 .product-card {
-  /* Usa o estilo .ui-card */
   cursor: pointer;
   transition: box-shadow 0.2s;
 }
@@ -17,8 +16,7 @@
 }
 
 .product-card-image-wrapper {
-  /* aspect-square overflow-hidden rounded-t-lg */
-  /* Remove o padding padrão do .ui-card-content */
+
   padding: 0 !important;
   aspect-ratio: 1 / 1;
   overflow: hidden;
@@ -27,7 +25,6 @@
 }
 
 .product-card-image {
-  /* w-full h-full object-cover transition-transform */
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -36,12 +33,10 @@
 
 /* Card Content (Texto, Descrição, Rating) */
 .product-card-content {
-  /* p-4 */
   padding: 1rem;
 }
 
 .product-card-header {
-  /* flex items-start justify-between mb-2 */
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -49,9 +44,9 @@
 }
 
 .product-card-title {
-  /* line-clamp-2 transition-colors */
+
   transition: color 0.2s;
-  /* Simulação de line-clamp-2 */
+
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -60,18 +55,14 @@
 }
 
 .product-card-badge {
-  /* ml-2 shrink-0 */
   margin-left: 0.5rem;
   flex-shrink: 0;
-  /* Estilo .ui-badge-secondary */
 }
 
 .product-card-description {
-  /* text-sm text-muted-foreground line-clamp-2 mb-3 */
   font-size: 0.875rem;
   color: var(--muted-foreground);
   margin-bottom: 0.75rem;
-  /* Simulação de line-clamp-2 */
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -80,7 +71,6 @@
 }
 
 .product-card-rating {
-  /* flex items-center gap-1 mb-3 */
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -101,7 +91,6 @@
   color: #d1d5db; /* gray-300 */
 }
 .product-card-rating-text {
-  /* text-sm text-muted-foreground ml-1 */
   font-size: 0.875rem;
   color: var(--muted-foreground);
   margin-left: 0.25rem;
@@ -115,21 +104,20 @@
   display: flex;
   align-items: center; 
   justify-content: space-between;
-  flex-wrap: wrap;   /* Permite quebrar linha se faltar espaço */
-  gap: 0.75rem;      /* Espaço entre preço e botão */
+  flex-wrap: wrap;   
+  gap: 0.75rem;      
 }
 
-/* Quando o botão desce para a segunda linha, ele estica para preencher o espaço */
 .product-card-footer > button {
   flex-grow: 1; 
   min-width: 110px;
 }
-/* Garante que o container do preço não estique demais empurrando o botão */
+
 .product-card-price-wrapper {
   display: flex;
   flex-direction: column;
-  flex-shrink: 0;      /* Impede que o preço seja "esmagado" pelo botão */
-  white-space: nowrap; /* Impede que o texto do preço quebre linha */
+  flex-shrink: 0;      
+  white-space: nowrap; 
 }
 
 .product-card-price {
@@ -139,12 +127,10 @@
 }
 
 .product-card-add-button {
-  /* shrink-0 */
   flex-shrink: 0;
-  /* Estilo .ui-button (default) */
+
 }
 .product-card-add-button svg {
-  /* w-4 h-4 mr-2 */
   width: 1rem;
   height: 1rem;
   margin-right: 0.5rem;

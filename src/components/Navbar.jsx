@@ -27,7 +27,7 @@ export function Navbar({ onSearchChange, onMenuToggle }) {
             variant="ghost" 
             size="icon" 
             onClick={onMenuToggle} 
-            className="navbar-menu-toggle" /* Classe mantida, vamos alterar o CSS dela */
+            className="navbar-menu-toggle" 
           >
             <Menu className="h-5 w-5" />
           </Button>

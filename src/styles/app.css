@@ -14,30 +14,23 @@
 
 .app-main-content {
   flex: 1;
-  /* O padding-top (pt-6) vem do container de cada página */
 }
 
-/* Em telas grandes (lg:), adiciona margem para a Sidebar */
 @media (min-width: 1024px) {
   .app-main-content {
-    /* 16rem = 256px = w-64 */
     margin-left: 16rem;
   }
 }
 .app-main-content {
   flex: 1;
-  /* O padding-top (pt-6) vem do container de cada página */
-  width: 100%; /* Garante que o container ocupe a largura disponível */
+  width: 100%;
 }
 
-/* Em telas grandes (lg:), adiciona margem APENAS se a sidebar estiver presente */
 @media (min-width: 1024px) {
-  /* Aplica a margem de 16rem apenas se NÃO tiver a classe 'no-sidebar' */
   .app-main-content:not(.no-sidebar) {
     margin-left: 16rem;
   }
 
-  /* Se tiver a classe 'no-sidebar', remove a margem para centralizar */
   .app-main-content.no-sidebar {
     margin-left: 0;
   }

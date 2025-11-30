@@ -161,7 +161,6 @@ export function ProductPage() {
             </div>
 
             <div className="product-page-actions">
-              {/* Remova a classe específica 'product-page-add-button' se quiser ambos iguais no CSS */}
               <Button onClick={handleAddToCart} size="lg"> 
                 <ShoppingCart className="w-5 h-5 mr-2" />
                 Adicionar ao Carrinho

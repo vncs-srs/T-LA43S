@@ -1,7 +1,5 @@
 /* src/styles/homepage.css */
 .homepage-container {
-  /* container mx-auto px-4 py-6 */
-  /* justify-items: center; */
   max-width: 1280px;
   margin: auto;
   padding: 1.5rem 1rem;
@@ -12,24 +10,17 @@
 }
 
 .homepage-title {
-  /* text-3xl font-bold mb-4 */
   font-size: 1.875rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
 
 .homepage-subtitle {
-  /* text-muted-foreground text-lg */
-  /* display: center; */
-  /* text-align: center; */
-/*   flex-grow: 1;
-  margin: auto; */
   color: var(--muted-foreground);
   font-size: 1.125rem;
 }
 
 .homepage-no-products {
-  /* display: grid; */
   padding-top: 3rem;
   padding-bottom: 3rem;
   text-align: center;
@@ -40,7 +31,6 @@
 }
 
 .homepage-product-grid {
-  /* grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 */
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 1.5rem;
@@ -58,7 +48,6 @@
 }
 @media (min-width: 1280px) {
   .homepage-product-grid {
-    /* Se a sidebar não estiver, seria 4 colunas "tenho que ver isso"*/
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

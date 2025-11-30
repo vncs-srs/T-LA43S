@@ -78,10 +78,10 @@ body {
   border-radius: var(--radius);
   border: 1px solid var(--input);
   background-color: var(--background);
-  padding: 0.3rem 0.75rem; /* Ajustei o padding lateral para ficar mais proporcional, tava meio esquisito */
+  padding: 0.3rem 0.75rem;
   font-size: 0.875rem;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
+  box-sizing: border-box; 
 }
 .ui-input:focus {
   outline: 2px solid var(--ring);;
@@ -91,7 +91,7 @@ body {
   color: var(--muted-foreground);
 }
 
-/* Button (Baseado no Figma), por enquanto não funciona direito */
+/* Button*/
 .ui-button {
   display: inline-flex;
   align-items: center;
@@ -107,7 +107,6 @@ body {
   transition: background-color 0.2s, opacity 0.2s;
 }
 .ui-button:focus {
-  /*outline: 1px solid var(--ring);*/
   outline-offset: 2px;
 }
 .ui-button:disabled {

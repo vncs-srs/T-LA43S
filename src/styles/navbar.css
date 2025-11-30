@@ -77,7 +77,7 @@
   pointer-events: none; 
 }
 .navbar-search-wrapper .navbar-search-input {
-  padding-left: 2.5rem; /* Garante espaço para o ícone */
+  padding-left: 2.5rem; 
   width: 100%;
 }
 

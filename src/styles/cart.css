@@ -1,14 +1,12 @@
 /* src/pages/CartPage.css */
 
 .cart-page-container {
-  /* container mx-auto px-4 py-6 */
   max-width: 1280px;
   margin: auto;
   padding: 1.5rem 1rem;
 }
 
 .cart-page-title {
-  /* text-3xl font-bold mb-8 */
   font-size: 1.875rem;
   font-weight: 700;
   margin-bottom: 2rem;
@@ -21,7 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem; /* space-y-4 */
+  gap: 1rem;
 }
 .cart-page-empty-icon {
   width: 4rem;
@@ -38,7 +36,6 @@
 
 /* Layout do Carrinho */
 .cart-page-layout {
-  /* grid grid-cols-1 lg:grid-cols-3 gap-8 */
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 2rem;
@@ -51,7 +48,6 @@
 
 /* Lista de Itens */
 .cart-item-list {
-  /* lg:col-span-2 space-y-4 */
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -66,11 +62,9 @@
   /* .ui-card */
 }
 .cart-item-content {
-  /* p-6 */
   padding: 1.5rem;
 }
 .cart-item-layout {
-  /* flex flex-col sm:flex-row gap-4 */
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -82,7 +76,6 @@
 }
 
 .cart-item-image-wrapper {
-  /* w-full sm:w-32 h-32 flex-shrink-0 */
   width: 100%;
   height: 8rem;
   flex-shrink: 0;
@@ -100,7 +93,6 @@
 }
 
 .cart-item-details {
-  /* flex-1 space-y-3 */
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -118,14 +110,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1rem; /* Dá um espaço do título/categoria */
+  margin-top: 1rem;
 }
 
-/* Nova classe para alinhar Quantidade e Remover lado a lado */
 .cart-item-actions-left {
   display: flex;
   align-items: center;
-  gap: 1.5rem; /* Espaço entre o seletor e o botão remover */
+  gap: 1.5rem;
 }
 
 /* Ajuste para mobile se necessário */
@@ -137,7 +128,7 @@
   }
   
   .cart-item-price-info {
-    text-align: left; /* Alinha preço à esquerda no mobile */
+    text-align: left;
   }
 }
 .cart-item-quantity-selector {
@@ -176,7 +167,6 @@
 }
 
 .cart-page-actions {
-  /* flex justify-between */
   display: flex;
   justify-content: space-between;
 }
@@ -190,12 +180,10 @@
 
 /* Resumo do Pedido */
 .cart-summary-card {
-  /* sticky top-20 */
   position: sticky;
-  top: 5rem; /* 4rem da navbar + 1rem de espaço */
+  top: 5rem;
 }
 .cart-summary-row {
-  /* flex justify-between */
   display: flex;
   justify-content: space-between;
 }
@@ -203,7 +191,6 @@
   color: #16a085; /* verde */
 }
 .cart-summary-total {
-  /* flex justify-between font-semibold text-lg */
   display: flex;
   justify-content: space-between;
   font-weight: 600;
@@ -213,7 +200,6 @@
   width: 100%;
 }
 .cart-summary-info {
-  /* text-xs text-muted-foreground text-center space-y-1 */
   font-size: 0.75rem;
   color: var(--muted-foreground);
   text-align: center;
@@ -221,9 +207,9 @@
 .cart-summary-content {
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* Define o espaçamento padrão entre todos os blocos */
+  gap: 1rem;
 }
-/* Container para as linhas de subtotal e frete (opcional, para agrupar melhor) */
+
 .cart-summary-rows-container {
   display: flex;
   flex-direction: column;
@@ -232,13 +218,12 @@
 /* Botão de Finalizar */
 .cart-checkout-button {
   width: 100%;
-  margin-top: 0.5rem; /* Um pouco mais de espaço extra acima do botão */
+  margin-top: 0.5rem; 
 }
 .cart-summary-info {
   font-size: 0.75rem;
   color: var(--muted-foreground);
   text-align: center;
-  /* Espaçamento interno entre as linhas de texto de segurança */
   display: flex;
   flex-direction: column;
   gap: rem;

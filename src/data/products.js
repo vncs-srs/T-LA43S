@@ -1,3 +1,4 @@
+/* src/data/products.js */
 export const mockProducts = [
   {
     id: '1',
@@ -54,7 +55,7 @@ export const mockProducts = [
     name: 'Jaqueta de Couro Premium',
     price: 399.99,
     image: 'https://media.istockphoto.com/id/1405990292/pt/foto/person-choosing-vintage-jacket-in-a-used-goods-store.jpg?s=612x612&w=0&k=20&c=azlRWfF_99wTuysj9_zrANUu_K0lLDRdPskGzYxJfOI=',
-    category: 'Moda',
+    category: 'Beleza',
     description: 'Jaqueta de couro genuíno, design clássico e atemporal, perfeita para qualquer ocasião.',
     rating: 4.7,
     reviews: 92
@@ -62,14 +63,19 @@ export const mockProducts = [
 ];
 
 export const categories = [
-  'Todas as Categorias',
-  'Eletrônicos',
-  'Moda',
-  'Livros',
-  'Casa e Jardim',
-  'Esportes',
-  'Beleza',
-  'Automotivo'
+  { label: 'Todas as Categorias' },
+  { label: 'Eletrônicos' },
+  { label: 'Moda' },
+  { label: 'Livros' },
+  { label: 'Casa e Jardim' },
+  { label: 'Esportes' },
+  { 
+    label: 'Variedades', 
+    subcategories: [
+      { label: 'Beleza' },
+      { label: 'Automotivo' }
+    ]
+  }
 ];
 
 export const priceRanges = [

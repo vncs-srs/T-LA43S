@@ -1,5 +1,6 @@
-import React from 'react';
-import { X } from 'lucide-react';
+/* src/components/Sidebar.jsx */
+import React, { useState } from 'react';
+import { X, ChevronDown, ChevronRight } from 'lucide-react';
 import { categories, priceRanges } from '@/data/products';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -16,9 +17,64 @@ export function Sidebar({
   selectedPriceRange,
   onPriceRangeChange,
 }) {
+  const [openSubmenus, setOpenSubmenus] = useState({});
+
+  const toggleSubmenu = (label) => {
+    setOpenSubmenus(prev => ({
+      ...prev,
+      [label]: !prev[label]
+    }));
+  };
+
+  const renderCategory = (category) => {
+    // Verifica se existem subcategorias
+    const hasSubcategories = category.subcategories && category.subcategories.length > 0;
+    const isSelected = selectedCategory === category.label;
+    const isOpen = openSubmenus[category.label];
+
+    return (
+      <div key={category.label}>
+        <button
+          onClick={() => {
+            if (hasSubcategories) {
+              toggleSubmenu(category.label);
+            } else {
+              onCategoryChange(category.label);
+            }
+          }}
+          className={`sidebar-category-button ${isSelected ? 'selected' : ''}`}
+        >
+          <span className={hasSubcategories ? 'sidebar-submenu-trigger' : ''}>
+            {category.label}
+          </span>
+          
+          {hasSubcategories && (
+            isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />
+          )}
+        </button>
+
+        {/* Submenu */}
+        {hasSubcategories && isOpen && (
+          <div className="sidebar-submenu">
+            {category.subcategories.map((sub) => (
+              <button
+                key={sub.label}
+                onClick={() => onCategoryChange(sub.label)}
+                className={`sidebar-category-button sidebar-submenu-item ${
+                  selectedCategory === sub.label ? 'selected' : ''
+                }`}
+              >
+                {sub.label}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <>
-      {/* Overlay para mobile */}
       {isOpen && (
         <div 
           className="sidebar-overlay lg:hidden" 
@@ -26,33 +82,22 @@ export function Sidebar({
         />
       )}
       
-      {/* Sidebar */}
       <aside className={`sidebar-container ${isOpen ? 'open' : ''}`}>
         <div className="sidebar-content">
           
-          {/* Header do Sidebar */}
           <div className="sidebar-header">
             <h2>Filtros</h2>
             <Button variant="ghost" size="icon" onClick={onClose}>
               <X className="h-4 w-4" />
             </Button>
           </div>
-
+          
           {/* Categorias */}
           <Card className="sidebar-filter-card">
             <h3 className="sidebar-filter-title">Categorias</h3>
             <div className="sidebar-category-list">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => onCategoryChange(category)}
-                  className={`sidebar-category-button ${
-                    selectedCategory === category ? 'selected' : ''
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
+              {/* Mapeamento usando a nova função renderCategory */}
+              {categories.map((category) => renderCategory(category))}
             </div>
           </Card>
 
@@ -84,6 +129,7 @@ export function Sidebar({
             onClick={() => {
               onCategoryChange('Todas as Categorias');
               onPriceRangeChange('Todos os preços');
+              setOpenSubmenus({});
             }}
           >
             Limpar Filtros
